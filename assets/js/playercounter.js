@@ -25,8 +25,6 @@ class PlayerCounter {
     }
   
     runQuery() {
-      // I'll use XMLHttpRequest because it has a better browser support
-      // than fetch & Promise.
       const request = new XMLHttpRequest();
       request.onreadystatechange = () => {
         if (request.readyState !== 4 || request.status !== 200) return;
@@ -35,28 +33,29 @@ class PlayerCounter {
         const response = JSON.parse(request.responseText);
         const displayStatus = this.element.getAttribute('data-playercounter-status');
   
-        // Display server status.
-        // offline/online
         if (displayStatus !== null) {
           this.element.innerText = response.online ? 'online' : 'offline';
           return;
         }
   
-        // Display online players
-        // Make sure server is online
         if (response.online) {
-          this.element.innerHTML = this.format.replace(FORMAT_REGEX, (_, group) => (
-            // Change 'online' to 'now' to keep backward compatibility
-            response.players[group === 'online' ? 'now' : group])
-          );
+          const online = response.players ? response.players.online : 0;
+          const max = response.players ? response.players.max : '?';
+
+          this.element.innerHTML = this.format.replace(FORMAT_REGEX, (match, group) => {
+            if (group === 'online') return online;
+            if (group === 'max') return max;
+            return match;
+          });
         }
       };
-      request.open('GET', `https://mcapi.us/server/status?ip=${this.ip}&port=${this.port}`);
+  
+      request.open('GET', `https://api.mcsrvstat.us/2/${this.ip}:${this.port}`);
       request.send();
     }
-  }
+}
   
-  const onDomLoad = function() {
+const onDomLoad = function() {
     const elements = document.querySelectorAll('[data-playercounter-ip]');
   
     for (let i = 0; i < elements.length; i++) {
@@ -69,12 +68,12 @@ class PlayerCounter {
         refreshRate: element.getAttribute('data-playercounter-refreshRate')
       });
     }
-  };
+};
   
-  if (document.readyState === 'complete') {
+if (document.readyState === 'complete') {
     onDomLoad();
-  } else {
+} else {
     window.onload = onDomLoad;
-  }
+}
   
-  window.PlayerCounter = PlayerCounter;
+window.PlayerCounter = PlayerCounter;
