@@ -7,6 +7,7 @@
     
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="icon" type="image/png" href="assets/img/favicon.png">
 
     <meta property="og:title" content="Podgląd szablonu" />
     <meta property="og:type" content="website" />
@@ -20,20 +21,18 @@
 <body>
     <div class="media">
         <a target="_blank" href="https://www.tiktok.com/@kilofmcpl"><img src="assets/img/tt-icon.png" alt=""></a>
-
         <a target="_blank" href="https://dc.kilofmc.pl"><img src="assets/img/dc-icon.png" alt=""></a>
-
-        <a target="_blank" href="https://www.youtube.com/@Kilofmcpl"><img style="margin-left: 10px;"src="assets/img/yt-icon.png" alt=""></a>
-
+        <a target="_blank" href="https://www.youtube.com/@Kilofmcpl"><img style="margin-left: 10px;" src="assets/img/yt-icon.png" alt=""></a>
     </div>
+
     <div class="bg"></div>
+
     <div class="header">
         <div class="logo">
             <h1>Kilofmc.pl</h1>
             <div class="online">
                 <div class="dot"></div>
                 <div class="text">
-                    <!-- Tutaj dodajemy kod do wyświetlania statusu serwera -->
                     <h2 data-playercounter-ip="83.168.106.235:25797">Ładowanie...</h2>
                     <h3>Lobby - online</h3>
                 </div>
@@ -41,7 +40,6 @@
             <div class="online">
                 <div class="dot"></div>
                 <div class="text">
-                    <!-- Tutaj dodajemy kod do wyświetlania statusu serwera -->
                     <h2 data-playercounter-ip="83.168.106.251:25808">Ładowanie...</h2>
                     <h3>BoxPvP - online</h3>
                 </div>
@@ -74,15 +72,11 @@
                     <img src="https://static.wikia.nocookie.net/minecraft/images/3/39/EnchantedDiamondPickaxeNew.gif/" alt="">
                     <h1>BOXPVP</h1>
                 </div>
-                <h2>Zwykły tryb BoxPvP
-
-                </h2>
+                <h2>Zwykły tryb BoxPvP</h2>
             </div>
-
         </div>
     </div>
 
-     
     <div id="administracja" class="section">
         <div class="title">
             <h1>Administracja</h1>
@@ -90,84 +84,64 @@
         </div>
         <div class="content">
             <div class="adm">
-                
                 <div class="left">
                     <img src="http://mc-heads.net/head/dZulek11" alt="">
                 </div>
-
                 <div class="right">
                     <h1>dZulek11</h1>
                     <h2>Owner</h2>
                 </div>
-
             </div>
 
-
             <div class="adm">
-                
                 <div class="left">
-                    <img src="http://mc-heads.net/head/_PXVE_ " alt="">
+                    <img src="http://mc-heads.net/head/_PXVE_" alt="">
                 </div>
-
                 <div class="right">
                     <h1>_PXVE_</h1>
                     <h2>Head admin</h2>
                 </div>
-
             </div>
-
         </div>
 
         <div class="content">
             <div class="adm">
-                
                 <div class="left">
                     <img src="http://mc-heads.net/head/pi3trucha_" alt="">
                 </div>
-
                 <div class="right">
                     <h1>pi3trucha_</h1>
                     <h2>Helper</h2>
                 </div>
-
             </div>
 
-
             <div class="adm">
-                
                 <div class="left">
                     <img src="http://mc-heads.net/head/seba_team" alt="">
                 </div>
-
                 <div class="right">
                     <h1>seba_team</h1>
                     <h2>Helper</h2>
                 </div>
-
             </div>
-
         </div>
+
         <div class="content">
             <div class="adm">
-                
                 <div class="left">
                     <img src="http://mc-heads.net/head/olsoniczekk" alt="">
                 </div>
-
                 <div class="right">
                     <h1>olsoniczekk</h1>
                     <h2>Helper</h2>
                 </div>
-
             </div>
-
-
         </div>
     </div>
     
     <div class="footer">
         <img src="https://dreamcode.cc/images/logo.png" alt="">
-
+        <img src="assets/img/favicon.png" alt="Favicon" style="height: 24px; margin-left: 10px;">
     </div>
 
     <div class="creator">
@@ -175,23 +149,21 @@
         <h2>WYKONANIE: <a href="https://vndev.fun"><b>VNDEV.FUN</b></a></h2>
     </div>
 
-    <!-- Skrypt z licznikiem graczy -->
-    <script src="assets/js/playercounter.js"></script> <!-- Upewnij się, że ten plik JavaScript jest tutaj -->
+    <script src="assets/js/playercounter.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
     $(document).ready(function(){
-    $("a").on('click', function(event) {
-        if (this.hash !== "") {
-        event.preventDefault();
-        var hash = this.hash;
-        $('html, body').animate({
-            scrollTop: $(hash).offset().top
-        }, 800, function(){
-            window.location.hash = hash;
+        $("a").on('click', function(event) {
+            if (this.hash !== "") {
+                event.preventDefault();
+                var hash = this.hash;
+                $('html, body').animate({
+                    scrollTop: $(hash).offset().top
+                }, 800, function(){
+                    window.location.hash = hash;
+                });
+            }
         });
-        }
-    });
     });
     </script>
-</body>
-</html>
+</
